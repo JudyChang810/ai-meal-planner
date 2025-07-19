@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background: #fcf8f3;
+  min-height: 100vh;
+  padding-bottom: 2rem;
 }
 
 .App-logo {
@@ -13,15 +16,165 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* New meal header styles */
+.meal-header {
+  background: #fcf8f3;
+  color: #4b3c1a;
+  padding: 2.5rem 0 1.5rem 0;
+  text-align: center;
+}
+
+.meal-header h1 {
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin-bottom: 0.7rem;
+  color: #4b3c1a;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-header-subtitle {
+  font-size: 1.3rem;
+  color: #6b5437;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  opacity: 0.95;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+/* New meal feature row and card styles */
+.meal-feature-row {
+  background: #fcf8f3;
+  padding: 2rem 0 2.5rem 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: nowrap;
+  border-bottom: none;
+}
+
+.meal-feature-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(80, 80, 120, 0.06);
+  padding: 1.1rem 0.7rem;
+  width: 180px;
+  min-width: 150px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #4b3c1a;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-feature-card h3 {
+  margin: 0.5rem 0 0.2rem 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #4b3c1a;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-feature-card p {
+  font-size: 0.95rem;
+  color: #6b5437;
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-feature-card .feature-icon {
+  font-size: 1.7rem;
+  margin-bottom: 0.3rem;
+}
+
+@media (max-width: 900px) {
+  .meal-feature-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0 1.5rem 0;
+  }
+  .meal-feature-card {
+    width: 95%;
+    max-width: 400px;
+  }
+}
+
+/* Main content area */
+.main-content {
+  background: none;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: stretch;
+  gap: 2.5rem;
+  margin: 0 2rem 2rem 2rem;
+  min-height: 600px;
+}
+
+.form-card, .results-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(80, 80, 120, 0.10);
+  padding: 2rem 1.5rem;
+  min-width: 340px;
+  max-width: 400px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-card {
+  margin-right: 0.5rem;
+}
+
+.results-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+  min-height: 320px;
+}
+
+.results-placeholder {
+  color: #444;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.results-subtext {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.98rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+  .form-card, .results-card {
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+}
+
+/* Remove old header style */
+.App-header {
+  background: none;
+  min-height: unset;
+  color: inherit;
+  display: block;
+  flex-direction: unset;
+  align-items: unset;
+  justify-content: unset;
+  font-size: unset;
 }
 
 .App-link {
@@ -35,4 +188,127 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.meal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  background: none;
+  color: #4b3c1a;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-form-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.08rem;
+  color: #4b3c1a;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-form-input {
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #e2d6c2;
+  border-radius: 7px;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #f9f6f1;
+  color: #4b3c1a;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.meal-form-input:focus {
+  outline: 2px solid #bfa77a;
+  border-color: #bfa77a;
+  background: #fffbe9;
+}
+
+.meal-form-button {
+  margin-top: 0.7rem;
+  padding: 0.6rem 1.3rem;
+  background: #bfa77a;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.08rem;
+  font-weight: 700;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  cursor: pointer;
+  transition: background 0.18s;
+}
+
+.meal-form-button:disabled {
+  background: #e2d6c2;
+  color: #a89b7a;
+  cursor: not-allowed;
+}
+
+.meal-form-select {
+  min-height: 2.7rem;
+  height: 2.7rem;
+  padding: 0.45rem 0.7rem;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: #f9f6f1;
+  color: #4b3c1a;
+  border: 1px solid #e2d6c2;
+  border-radius: 7px;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.1rem;
+  resize: none;
+}
+
+.meal-form-select:focus {
+  outline: 2px solid #bfa77a;
+  border-color: #bfa77a;
+  background: #f5ede2;
+}
+
+.meal-form-select option {
+  padding: 0.3rem 0.7rem;
+  font-size: 1rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #4b3c1a;
+  background: #f9f6f1;
+}
+
+html, body {
+  background: #fcf8f3 !important;
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.meal-results-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #4b3c1a;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.meal-results-subtext {
+  display: block;
+  margin-top: 0.7rem;
+  color: #6b5437;
+  font-size: 1.05rem;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  opacity: 0.95;
+}
+
+.meal-form-error {
+  color: #b85c00;
+  font-size: 0.98rem;
+  margin-top: 0.2rem;
+  display: block;
+  font-family: 'Georgia', 'Times New Roman', serif;
 }
