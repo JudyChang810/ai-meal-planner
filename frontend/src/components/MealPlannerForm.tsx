@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { MealPlanRequest, MealPlanResult } from '../types/meal';
 
 const CUISINES = ['Thai', 'Italian', 'Japanese', 'Mexican', 'Indian', 'French', 'Chinese', 'American'];
 const DIETS = ['Vegan', 'Vegetarian', 'Low-Carb', 'Dairy-Free', 'Nut-Free', 'Gluten-Free'];
 
 interface MealPlannerFormProps {
-  setResults: (results: MealPlanResult) => void;
+  setResult: (result: string) => void;
 }
 
 // Define form state type explicitly
@@ -22,7 +21,7 @@ interface MealPlannerFormState {
 const MAX_PEOPLE = 15;
 const MAX_DISHES = 15;
 
-const MealPlannerForm: React.FC<MealPlannerFormProps> = ({ setResults }) => {
+const MealPlannerForm: React.FC<MealPlannerFormProps> = ({ setResult }) => {
   const [form, setForm] = useState<MealPlannerFormState>({
     purpose: '',
     dishCategory: '',
@@ -69,10 +68,10 @@ const MealPlannerForm: React.FC<MealPlannerFormProps> = ({ setResults }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setResults(null as any); // Clear previous results
+    setResult(""); // Clear previous result
     try {
       // Prepare payload with correct types for backend
-      const payload: MealPlanRequest & { dishCategory?: string; courseType?: string } = {
+      const payload = {
         purpose: form.purpose,
         people: Number(form.people),
         dishes: Number(form.dishes),
@@ -91,7 +90,7 @@ const MealPlannerForm: React.FC<MealPlannerFormProps> = ({ setResults }) => {
         body: JSON.stringify(payload),
       });
       const data = await res.json();
-      setResults(data);
+      setResult(data.result);
     } catch (err) {
       alert('Failed to generate meal plan.');
     } finally {

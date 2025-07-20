@@ -29,13 +29,11 @@
   font-weight: 800;
   margin-bottom: 0.7rem;
   color: #4b3c1a;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-header-subtitle {
   font-size: 1.3rem;
   color: #6b5437;
-  font-family: 'Georgia', 'Times New Roman', serif;
   opacity: 0.95;
   margin: 0 auto;
   max-width: 700px;
@@ -65,7 +63,6 @@
   flex-direction: column;
   align-items: center;
   color: #4b3c1a;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-feature-card h3 {
@@ -73,14 +70,12 @@
   font-size: 1.05rem;
   font-weight: 700;
   color: #4b3c1a;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-feature-card p {
   font-size: 0.95rem;
   color: #6b5437;
   margin: 0;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-feature-card .feature-icon {
@@ -196,7 +191,6 @@
   gap: 1.1rem;
   background: none;
   color: #4b3c1a;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-form-label {
@@ -207,7 +201,6 @@
   color: #4b3c1a;
   font-weight: 600;
   margin-bottom: 0.2rem;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-form-input {
@@ -217,7 +210,6 @@
   border: 1px solid #e2d6c2;
   border-radius: 7px;
   font-size: 1rem;
-  font-family: 'Georgia', 'Times New Roman', serif;
   background: #f9f6f1;
   color: #4b3c1a;
   width: 100%;
@@ -239,7 +231,6 @@
   border-radius: 7px;
   font-size: 1.08rem;
   font-weight: 700;
-  font-family: 'Georgia', 'Times New Roman', serif;
   cursor: pointer;
   transition: background 0.18s;
 }
@@ -255,7 +246,6 @@
   height: 2.7rem;
   padding: 0.45rem 0.7rem;
   font-size: 1rem;
-  font-family: 'Georgia', 'Times New Roman', serif;
   background: #f9f6f1;
   color: #4b3c1a;
   border: 1px solid #e2d6c2;
@@ -276,7 +266,6 @@
 .meal-form-select option {
   padding: 0.3rem 0.7rem;
   font-size: 1rem;
-  font-family: 'Georgia', 'Times New Roman', serif;
   color: #4b3c1a;
   background: #f9f6f1;
 }
@@ -293,7 +282,6 @@ html, body {
   font-size: 1.35rem;
   font-weight: 700;
   color: #4b3c1a;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }
 
 .meal-results-subtext {
@@ -301,7 +289,6 @@ html, body {
   margin-top: 0.7rem;
   color: #6b5437;
   font-size: 1.05rem;
-  font-family: 'Georgia', 'Times New Roman', serif;
   opacity: 0.95;
 }
 
@@ -310,5 +297,4 @@ html, body {
   font-size: 0.98rem;
   margin-top: 0.2rem;
   display: block;
-  font-family: 'Georgia', 'Times New Roman', serif;
 }

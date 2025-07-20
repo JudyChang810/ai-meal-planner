@@ -1,51 +1,81 @@
 import React from 'react';
-import { MealPlanResult } from '../types/meal';
 
-interface Props {
-  results: MealPlanResult;
+interface Dish {
+  name: string;
+  description: string;
+  ingredients: { item: string; quantity: string }[];
+  alternativeIngredients: { original: string; alternative: string }[];
+  recipe: string;
+  cookingTips: string;
 }
 
-const splitRecipeSteps = (recipe: string) => {
-  // Split on period followed by space or end of string, but keep abbreviations together
-  return recipe.split(/\.(?!\d|\s*\w\.)\s*/).filter(Boolean);
-};
+interface Props {
+  result: string;
+}
 
-const MealResults: React.FC<Props> = ({ results }) => (
-  <div style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
-    <h3>Recommended Dishes</h3>
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
-      {results.dishes.map((dish, idx) => (
-        <div key={idx} style={{ border: '1px solid #ccc', borderRadius: 8, padding: 16, width: 320 }}>
-          <h4>{dish.name}</h4>
-          {/* <img src={dish.imageUrl} alt={dish.name} style={{ width: '100%', borderRadius: 4 }} /> */}
-          <div style={{ textAlign: 'left' }}>
-            <strong>Ingredients</strong>
-            <ul style={{ marginTop: 4, marginBottom: 8 }}>
-              {dish.ingredients.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-            <strong>Alternative Ingredients</strong>
-            <ul style={{ marginTop: 4, marginBottom: 8 }}>
-              {dish.alternativeIngredients.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
-            </ul>
-            <strong>Recipe</strong>
-            {splitRecipeSteps(dish.recipe).length > 1 ? (
-              <ol style={{ marginTop: 4 }}>
-                {splitRecipeSteps(dish.recipe).map((step, i) => (
-                  <li key={i}>{step.trim()}{step.trim().endsWith('.') ? '' : '.'}</li>
-                ))}
-              </ol>
-            ) : (
-              <p style={{ marginTop: 4 }}>{dish.recipe}</p>
-            )}
-          </div>
+const MealResults: React.FC<Props> = ({ result }) => {
+  let dishes: Dish[] | null = null;
+  try {
+    const parsed = JSON.parse(result);
+    if (Array.isArray(parsed)) {
+      dishes = parsed;
+    }
+  } catch {
+    // Not valid JSON, will display as plain text
+  }
+
+  if (dishes) {
+    return (
+      <div>
+        <h3>Recommended Dishes</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', justifyContent: 'center' }}>
+          {dishes.map((dish, idx) => (
+            <div key={idx} style={{ border: '1px solid #ccc', borderRadius: 8, padding: 16, width: 340, background: '#fff' }}>
+              <h4>{dish.name}</h4>
+              {dish.description && <p style={{ fontStyle: 'italic', color: '#555', marginTop: 0 }}>{dish.description}</p>}
+              <div style={{ textAlign: 'left' }}>
+                <strong>Ingredients</strong>
+                <ul>
+                  {dish.ingredients.map((item, i) => (
+                    <li key={i}>
+                      {item.item}
+                      {item.quantity ? ` (${item.quantity})` : ''}
+                    </li>
+                  ))}
+                </ul>
+                <strong>Alternative Ingredients</strong>
+                <ul>
+                  {dish.alternativeIngredients.map((item, i) => (
+                    <li key={i}>
+                      {item.original} → {item.alternative}
+                    </li>
+                  ))}
+                </ul>
+                <strong>Recipe</strong>
+                <p>{dish.recipe}</p>
+                {dish.cookingTips && (
+                  <div style={{ marginTop: 8 }}>
+                    <strong>Cooking Tips:</strong>
+                    <div style={{ color: '#3a3', fontStyle: 'italic', marginTop: 2 }}>{dish.cookingTips}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+    );
+  }
+
+  // Fallback: display as plain text
+  return (
+    <div>
+      <h3>Recommended Dishes</h3>
+      <div style={{ whiteSpace: 'pre-line', textAlign: 'left', margin: '0 auto', maxWidth: 700, background: '#fff', borderRadius: 8, padding: 24, border: '1px solid #eee' }}>
+        {result}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MealResults; 

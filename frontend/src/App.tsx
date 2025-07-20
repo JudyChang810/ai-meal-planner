@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import MealPlannerForm from './components/MealPlannerForm';
 import MealResults from './components/MealResults';
-import { MealPlanResult } from './types/meal';
 import './App.css';
 
 function App() {
-  const [results, setResults] = useState<MealPlanResult | null>(null);
+  const [result, setResult] = useState<string | null>(null);
 
   return (
     <div className="App">
@@ -39,11 +38,11 @@ function App() {
       </div>
       <main className="main-content">
         <div className="form-card">
-          <MealPlannerForm setResults={setResults} />
+          <MealPlannerForm setResult={setResult} />
         </div>
         <div className="results-card">
-          {results ? (
-            <MealResults results={results} />
+          {result ? (
+            <MealResults result={result} />
           ) : (
             <div className="results-placeholder meal-results-placeholder">
               <span className="results-subtext meal-results-subtext">
