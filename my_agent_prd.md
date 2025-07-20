@@ -48,6 +48,7 @@ The AI Meal Planner is a web-based tool that helps users plan meals for themselv
 - Generate a list of dishes matching user criteria
 - For each dish:
   - Name
+  - Description
   - Ingredients list
   - Alternative ingredients (for dietary needs or substitutions)
   - Recipe steps
@@ -55,7 +56,6 @@ The AI Meal Planner is a web-based tool that helps users plan meals for themselv
 ### 4.3. Results Display
 - Show recommended dishes in a visually appealing format
 - Allow users to view details for each dish
-- Option to save, print, or export the meal plan
 
 ---
 
@@ -81,7 +81,7 @@ The AI Meal Planner is a web-based tool that helps users plan meals for themselv
 
 - Time to generate meal plans
 - User satisfaction (feedback, ratings)
-- Number of meal plans generated/saved
+- Number of meal plans generated
 - Engagement with alternative ingredient suggestions
 
 ---
@@ -97,6 +97,7 @@ The AI Meal Planner is a web-based tool that helps users plan meals for themselv
 ## 9. Future Considerations
 
 - AI-generated reference image for each dish (using an image generation model or API, e.g., OpenAI DALL·E, Stability AI, etc.)
+- Option to save, print, or export the meal plan
 - Integration with grocery APIs for shopping lists
 - User accounts and saved meal history
 - Nutrition analysis and calorie tracking

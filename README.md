@@ -9,7 +9,7 @@ A fast, customizable meal planning application powered by React, FastAPI, and Op
 - **Diverse Cuisine Support:** Choose from popular cuisines or mix and match.
 - **Dietary Flexibility:** Vegan, vegetarian, low-carb, dairy-free, nut-free, gluten-free, and more.
 - **Detailed Recipes:** Each dish includes a recipe, main ingredients, and alternative ingredients for dietary needs.
-- **AI-Powered Backend:** Uses OpenAI's GPT-4o-mini for creative, high-quality meal suggestions.
+- **AI-Powered Backend:** Uses OpenAI's LLM for creative, high-quality meal suggestions.
 
 ## Architecture
 
@@ -69,7 +69,7 @@ The application will be available at:
 ## Tech Stack
 
 - **Frontend:** React, TypeScript
-- **Backend:** FastAPI, OpenAI (GPT-4o-mini)
+- **Backend:** FastAPI, OpenAI
 - **Infrastructure:** Docker, Docker Compose (optional)
 
 ## API Endpoint
